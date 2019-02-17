@@ -36,7 +36,7 @@ export const WidgetProfile = ({header, data}) => {
               <ListGroup.Item>Company Name : {data.company && data.company.name}</ListGroup.Item>
               <ListGroup.Item>Email: {data.email}</ListGroup.Item>
               <ListGroup.Item>Phone: {data.phone}</ListGroup.Item>
-              <ListGroup.Item>{ data.address && data.address.street} {data.address && data.address.city} {data.address && data.address.zipcode}</ListGroup.Item>
+              <ListGroup.Item>Address: { data.address && data.address.street} {data.address && data.address.city} {data.address && data.address.zipcode}</ListGroup.Item>
             </ListGroup>
           </Container>
         </div>

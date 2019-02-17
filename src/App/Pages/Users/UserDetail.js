@@ -1,7 +1,13 @@
 import React, { Component } from "react";
-import { Row, Col, Card, Button, Container } from "react-bootstrap";
+import {
+  Row,
+  Col,
+  Button,
+  Container,
+  ButtonGroup
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { InputPost, WidgetProfile } from "App/Components/Widget";
+import Widget, { InputPost, WidgetProfile } from "App/Components/Widget";
 import ModalEdit from "App/Components/Widget/modalEdit";
 import { get } from "actions/common";
 
@@ -19,7 +25,6 @@ export default class UserDeatail extends Component {
   }
   setData = i => {
     const { name, value } = i.target;
-    // console.log(name, value)
     this.setState({ [name]: value });
   };
   cancelPost = () => {
@@ -31,8 +36,6 @@ export default class UserDeatail extends Component {
     });
   };
   submitNewPost = () => {
-    // in real life
-    // post to an endpoint
     const { postTitle, postBody, editId } = this.state;
     const newPost = {
       userId: 1,
@@ -42,13 +45,10 @@ export default class UserDeatail extends Component {
     };
     const newPostsArr = [newPost];
 
-    // simple validation
     if (postTitle.length > 0 && postBody.length > 0) {
-      // imutable
       const copyAllPosts = this.state.allPosts.slice();
       const newData = newPostsArr.concat(copyAllPosts);
       if (editId !== "") {
-        // const updatedData = copyAllPosts.splice(editId, 1, newPostsArr)
         copyAllPosts[editId] = newPost;
         this.setState({ allPosts: copyAllPosts });
       } else {
@@ -114,7 +114,7 @@ export default class UserDeatail extends Component {
               this.state.allPosts.map((list, i) => {
                 return (
                   <div className="mb-2" key={i}>
-                    <Card style={{ padding: "15px" }}>
+                    <Widget>
                       <Link
                         to={`/user/${userId}/post/${list.id}`}
                         className="defaultColor post-title hover"
@@ -127,31 +127,27 @@ export default class UserDeatail extends Component {
                           <Button size="sm">Comment</Button>
                         </Link>
                         <div className="float-right">
-                          <div
-                            className="btn-group"
-                            role="group"
-                            aria-label="..."
-                          >
-                            <button
-                              type="button"
-                              className="btn btn-warning btn-sm"
+                          <ButtonGroup>
+													<Button
+                              variant="warning"
                               title="edit"
                               onClick={this.editPostItem(i)}
+                              size="sm"
                             >
                               Edit
-                            </button>
-                            <button
-                              type="button"
-                              className="btn btn-danger btn-sm"
-                              title="remove"
+                            </Button>
+                            <Button
+                              variant="danger"
+                              title="edit"
                               onClick={this.deletePostItem(i)}
+                              size="sm"
                             >
-                              Remove
-                            </button>
-                          </div>
+															Remove
+														</Button>
+                          </ButtonGroup>
                         </div>
                       </div>
-                    </Card>
+                    </Widget>
                   </div>
                 );
               })}

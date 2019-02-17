@@ -16,7 +16,6 @@ export default class AlbumDetailPhoto extends Component {
     });
   }
   render() {
-    // const userId = this.props.match.params.id
     const { title, url } = this.state.albums;
     return (
       <Container>
