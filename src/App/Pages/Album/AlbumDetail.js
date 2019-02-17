@@ -8,6 +8,7 @@ export default class AlbumDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      albumData: [],
       albums: [],
       userData: []
     };
@@ -16,6 +17,9 @@ export default class AlbumDetail extends Component {
     const { id, albumId } = this.props.match.params;
     get(`photos?albumId=${albumId}`, albums => {
       this.setState({ albums });
+    });
+    get(`albums/${albumId}`, albumData => {
+      this.setState({ albumData });
     });
     get(`users/${id}`, userData => this.setState({ userData }));
   }
@@ -30,32 +34,39 @@ export default class AlbumDetail extends Component {
           <Col md={6}>
             <Container>
               <Row>
+                <div style={{ width: "100%" }}>
+                  <Widget>
+                    <h5>Album Name:</h5>
+                    <h4>{this.state.albumData.title}</h4>
+                  </Widget>
+                </div>
+              </Row>
+              <Row>
                 {this.state.albums.length < 1 && "Loading..."}
                 {this.state.albums.map((album, i) => (
-                  <Col md={12}>
-                  <Widget key={i}>
-                    <Link
-                      to={`/user/${userId}/photos/${album.id}`}
-                      className="thumbnail defaultColor"
-                    >
-                      <Media>
-                        <img
-                          width={150}
-                          height={150}
-                          className="mr-3"
-                          src={album.thumbnailUrl}
-                          alt="Generic placeholder"
-                        />
-                        <Media.Body>
-                          <h4 className="inline-title" title={album.title}>
-                            {album.title}
-                          </h4>
-                        </Media.Body>
-                      </Media>
-                    </Link>
-                  </Widget>
-                  </Col>
-                  
+                  <div key={i} style={{ width: "100%" }}>
+                    <Widget>
+                      <Link
+                        to={`/user/${userId}/photos/${album.id}`}
+                        className="thumbnail defaultColor"
+                      >
+                        <Media>
+                          <img
+                            width={150}
+                            height={150}
+                            className="mr-3"
+                            src={album.thumbnailUrl}
+                            alt="Generic placeholder"
+                          />
+                          <Media.Body>
+                            <h4 className="inline-title" title={album.title}>
+                              {album.title}
+                            </h4>
+                          </Media.Body>
+                        </Media>
+                      </Link>
+                    </Widget>
+                  </div>
                 ))}
               </Row>
             </Container>

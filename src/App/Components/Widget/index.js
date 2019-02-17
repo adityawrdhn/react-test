@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroup, FormControl, Card} from "react-bootstrap";
+import { FormGroup, FormControl, Card, ListGroup, Container} from "react-bootstrap";
 
 const Widget = ({header, children}) => {
   return (
@@ -31,10 +31,14 @@ export const WidgetProfile = ({header, data}) => {
           </h4>
           <p>{data.website}</p>
           <hr />
-          <div>
-            <p> {data.company && data.company.name}</p>
-            <p>{data.email}</p>
-          </div>
+          <Container className="text-left mb-2" >
+            <ListGroup>
+              <ListGroup.Item>Company Name : {data.company && data.company.name}</ListGroup.Item>
+              <ListGroup.Item>Email: {data.email}</ListGroup.Item>
+              <ListGroup.Item>Phone: {data.phone}</ListGroup.Item>
+              <ListGroup.Item>{ data.address && data.address.street} {data.address && data.address.city} {data.address && data.address.zipcode}</ListGroup.Item>
+            </ListGroup>
+          </Container>
         </div>
       </Card>
     </div>
@@ -55,7 +59,7 @@ export const InputPost = ({title, body, onChange, onCancel, onSubmit}) => {
       </FormGroup>
       <FormGroup>
         <FormControl
-          componentClass="textarea"
+          as="textarea"
           name="postBody"
           placeholder="Whats On Your Mind?"
           value={body}

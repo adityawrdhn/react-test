@@ -22,7 +22,7 @@ export default class UserDeatail extends Component {
     // console.log(name, value)
     this.setState({ [name]: value });
   };
-  CancelPost = () => {
+  cancelPost = () => {
     this.setState({
       postTitle: "",
       postBody: "",
@@ -54,7 +54,7 @@ export default class UserDeatail extends Component {
       } else {
         this.setState({ allPosts: newData });
       }
-      this.CancelPost();
+      this.cancelPost();
     }
   };
   setPosts = data => {
@@ -98,7 +98,7 @@ export default class UserDeatail extends Component {
                 onChange: this.setData,
                 title: this.state.postTitle,
                 body: this.state.postBody,
-                onCancel: this.CancelPost,
+                onCancel: this.cancelPost,
                 onSubmit: this.submitNewPost
               }}
             />
@@ -106,7 +106,7 @@ export default class UserDeatail extends Component {
               onChange={this.setData}
               title={this.state.postTitle}
               body={this.state.postBody}
-              onCancel={this.CancelPost}
+              onCancel={this.cancelPost}
               onSubmit={this.submitNewPost}
             />
             {this.state.allPosts.length < 1 && "Loading..."}

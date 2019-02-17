@@ -32,8 +32,8 @@ export default class Albums extends Component {
               <Row>
                 {this.state.albums.length < 1 && "Loading..."}
                 {this.state.albums.map((album, i) => (
-                  <Col md={12} key={i}>
-                    <Widget>
+                  <div style={{width:'100%'}} key={i}>
+                    <Widget >
                       <Link
                         to={`/user/${id}/album/${album.id}`}
                         className="thumbnail defaultColor"
@@ -43,7 +43,7 @@ export default class Albums extends Component {
                         </h4>
                       </Link>
                     </Widget>
-                  </Col>
+                  </div>
                 ))}
               </Row>
             </Container>
