@@ -1,7 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 *link deploy : https://adityawrdhn.github.io/react-test/
-*). note : root page https://adityawrdhn.github.io/react-test/ belum di set. jika di reload url akan pindah dari https://adityawrdhn.github.io/react-test/ ko https://adityawrdhn.github.io/ , hasilnya 404
+
+
+## *.) note : root page https://adityawrdhn.github.io/react-test/ belum di set. jika di reload url akan pindah dari https://adityawrdhn.github.io/react-test/ ko https://adityawrdhn.github.io/ , hasilnya 404
 
 ## Step 1. How To Run in Production Mode 
 
