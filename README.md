@@ -1,4 +1,56 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Step 1. How To Run in Production Mode 
+
+
+```sh
+# Yarn
+yarn install
+yarn build-css
+yarn start #run in development mode
+```
+
+```sh
+# via npm
+npm install
+npm run build-css
+npm start #run in development mode
+```
+Step 2
+
+## Step 2. How To Run in Production mode
+```sh
+# via yarn
+yarn build
+```
+
+```sh
+# via npm
+yarn build
+npm run build 
+```
+
+## Step 3. How To Run in Production mode
+
+```sh
+# via npm
+npm install -g serve
+serve -s build
+```
+## Step 4. How To Run in Production mode
+
+open http://localhost:5000
+
+## Test
+```sh
+yarn test
+npm test #via npm
+```
+
+show test logs
+```sh
+yarn test --verbose
+npm test --verbose #use Npm
+```
 
 ## Available Scripts
 
