@@ -1,5 +1,6 @@
 import React from "react";
 import {  Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = props => {
   const { id } = props.match.params;
@@ -12,12 +13,12 @@ const Header = props => {
         <Navbar.Collapse id="basic-navbar-nav">
           {id ? (
             <Nav className="mr-auto">
-              <Nav.Link to={`/user/${id}`} href={`/user/${id}`}>
+              <Link to={`/user/${id}`} className="ml-5">
                 Posts
-              </Nav.Link>
-              <Nav.Link to={`/user/${id}/album`} href={`/user/${id}/album`}>
+              </Link>
+              <Link to={`/user/${id}/album`} className="ml-5">
                 Albums
-              </Nav.Link>
+              </Link>
             </Nav>
           ) : (
             ""
