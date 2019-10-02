@@ -3,9 +3,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 *link deploy : https://adityawrdhn.github.io/react-test/
 
 
-## *.) note : Untuk page deploy yg ini: https://adityawrdhn.github.io/react-test/ root-page (../react-test/) belum di set. jika di reload, url akan pindah dari https://adityawrdhn.github.io/react-test/ ko https://adityawrdhn.github.io/ , hasilnya akan 404
+## *.) note : Untuk page deploy yg ini: https://adityawrdhn.github.io/react-test/ root-page (../react-test/) belum di set. jika di reload, url akan pindah dari https://adityawrdhn.github.io/react-test/ ke https://adityawrdhn.github.io/ , hasilnya akan 404
 
-## Step 1. How To Run in Production Mode 
+## Step 1. How To Run in Development Mode 
 
 
 ```sh
